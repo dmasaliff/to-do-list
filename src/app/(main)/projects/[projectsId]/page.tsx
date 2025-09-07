@@ -15,7 +15,7 @@ async function getProjectData(projectsId: string) {
 
 export default async function ProjectDetailPage({ params }: { params: { projectsId: string } }) {
     try {
-        const { projectsId } = await params;
+        const { projectsId } = params;
         const { project, tasks } = await getProjectData(projectsId);
 
     if (!project) {
