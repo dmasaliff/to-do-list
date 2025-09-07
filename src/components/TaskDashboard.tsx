@@ -7,7 +7,7 @@ export default function TaskDashboard({ initialTasks }: { initialTasks: Task[] }
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const handleToggleCompleted = async (taskId: string, isCompleted: boolean) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tasks/${taskId}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ completed: isCompleted }),
@@ -33,7 +33,7 @@ export default function TaskDashboard({ initialTasks }: { initialTasks: Task[] }
   }
 
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tasks/${taskId}`, {
       method: 'DELETE',
     });
 

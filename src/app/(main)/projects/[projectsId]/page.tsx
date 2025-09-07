@@ -1,7 +1,7 @@
 import ProjectDetailClient from '@/components/ProjectDetailClient';
 
 async function getProjectData(projectsId: string) {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/projects/${projectsId}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/projects/${projectsId}`, {
     cache: 'no-store'
   });
 

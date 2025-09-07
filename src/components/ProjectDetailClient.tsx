@@ -22,7 +22,7 @@ export default function ProjectDetailClient({ initialTasks, projectId }: Project
     e.preventDefault();
     if (newTaskTitle.trim() === '') return;
     try {
-      const res = await fetch('http://localhost:3000/api/tasks', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ export default function ProjectDetailClient({ initialTasks, projectId }: Project
   }
 
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tasks/${taskId}`, {
       method: 'DELETE',
     });
 
@@ -77,7 +77,7 @@ export default function ProjectDetailClient({ initialTasks, projectId }: Project
 
   const handleToggleCompleted = async (taskId: string, isCompleted: boolean) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/tasks/${taskId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/tasks/${taskId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ completed: isCompleted }),
